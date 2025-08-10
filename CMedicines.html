@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Unani Medicines - Herbenia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9, #a5d6a7, #81c784);
+            transition: background 1s ease;
+        }
+        
+        .hero-overlay {
+            background: rgba(76, 175, 80, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 80px 0;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%234CAF50" d="M256 0c-74.6 0-135 60.4-135 135 0 74.6 60.4 135 135 135 74.6 0 135-60.4 135-135C391 60.4 330.6 0 256 0zm0 240c-57.9 0-105-47.1-105-105S198.1 30 256 30s105 47.1 105 105-47.1 105-105 105z"/></svg>');
+            background-size: cover;
+            opacity: 0;
+            animation: falling linear infinite;
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .nature-bg {
+            background: linear-gradient(to bottom, #f0fdf4, #dcfce7, #bbf7d0, #86efac);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Leaves -->
+    <div id="leaves-container"></div>
+    
+    <!-- Navigation (consistent) -->
+    <nav class="fixed w-full z-50 bg-green-800 bg-opacity-90 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="mr-2">
+                        <i class="fas fa-leaf text-2xl text-green-300"></i>
+                    </div>
+                    <a href="Index.html" class="text-2xl font-bold text-white hover:text-green-200 transition duration-300">HERBENIA</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="Homepage.html#about" class="nav-link text-white hover:text-green-200 transition duration-300">About Unani</a>
+                    <a href="Homepage.html#doctor" class="nav-link text-white hover:text-green-200 transition duration-300">Dr. N A Rana</a>
+                    <a href="Homepage.html#consultation" class="nav-link text-white hover:text-green-200 transition duration-300">Consultation</a>
+                    <a href="Homepage.html#medicines" class="nav-link text-white hover:text-green-200 transition duration-300">Medicines</a>
+                    <a href="Homepage.html#lectures" class="nav-link text-white hover:text-green-200 transition duration-300">Lectures</a>
+                    <a href="Homepage.html#testimonials" class="nav-link text-white hover:text-green-200 transition duration-300">Testimonials</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden bg-green-700">
+            <div class="container mx-auto px-6 pt-2 pb-4">
+                <a href="Homepage.html#about" class="block py-2 text-white hover:text-green-200 transition duration-300">About Unani</a>
+                <a href="Homepage.html#doctor" class="block py-2 text-white hover:text-green-200 transition duration-300">Dr. N A Rana</a>
+                <a href="Homepage.html#consultation" class="block py-2 text-white hover:text-green-200 transition duration-300">Consultation</a>
+                <a href="Homepage.html#medicines" class="block py-2 text-white hover:text-green-200 transition duration-300">Medicines</a>
+                <a href="Homepage.html#lectures" class="block py-2 text-white hover:text-green-200 transition duration-300">Lectures</a>
+                <a href="Homepage.html#testimonials" class="block py-2 text-white hover:text-green-200 transition duration-300">Testimonials</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section nature-bg relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-green-800 mb-4">Our Nature-Inspired Unani Medicines</h1>
+                <div class="w-32 h-1 bg-green-600 mx-auto"></div>
+                <p class="text-xl text-green-700 mt-4">Pure, plant-based remedies rooted in ancient wisdom for balanced health.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1587854692152-e06a60db7d9a?auto=format&fit=crop&w=400" alt="Arq-e-Ajwayin herbal distillate" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Arq-e-Ajwayin</h3>
+                        <p class="text-gray-700 mb-2">Distilled ajwain (carom seeds) water.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Relieves indigestion, flatulence, and stomach pain. Natural digestive aid.</p>
+                        <span class="text-green-700 font-bold">₹250 (200ml)</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&w=400" alt="Arq-e-Badiyan fennel distillate" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Arq-e-Badiyan</h3>
+                        <p class="text-gray-700 mb-2">Distilled fennel water.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Eases gastrointestinal discomfort, colic, and bloating. Supports liver function.</p>
+                        <span class="text-green-700 font-bold">₹300 (200ml)</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1598047899294-5d359c0a211d?auto=format&fit=crop&w=400" alt="Majun-e-Falasfa herbal paste" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Majun-e-Falasfa</h3>
+                        <p class="text-gray-700 mb-2">Honey-based herbal paste with almonds and herbs.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Strengthens nerves, improves memory, treats backache and neuralgia.</p>
+                        <span class="text-green-700 font-bold">₹450 (100g)</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1559839719-7f0e85a3195e?auto=format&fit=crop&w=400" alt="Khamira Gaozaban brain tonic" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Khamira Gaozaban</h3>
+                        <p class="text-gray-700 mb-2">Herbal jam with borage and precious metals.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Brain tonic for mental fatigue, palpitations, and heart weakness.</p>
+                        <span class="text-green-700 font-bold">₹500 (100g)</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400" alt="Sharbat-e-Anar pomegranate syrup" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Sharbat-e-Anar</h3>
+                        <p class="text-gray-700 mb-2">Pomegranate-based syrup.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Improves digestion, quenches thirst, supports heart health.</p>
+                        <span class="text-green-700 font-bold">₹350 (500ml)</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1606890658317-7d14490b76fd?auto=format&fit=crop&w=400" alt="Roghan Badam almond oil" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Roghan Badam</h3>
+                        <p class="text-gray-700 mb-2">Pure almond oil.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Nourishes skin, relieves dryness, promotes hair growth.</p>
+                        <span class="text-green-700 font-bold">₹400 (100ml)</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400" alt="Habb-e-Suranjan gout pills" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Habb-e-Suranjan</h3>
+                        <p class="text-gray-700 mb-2">Pills with Colchicum luteum.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Treats gout, arthritis, joint pain, reduces inflammation.</p>
+                        <span class="text-green-700 font-bold">₹300 (50 pills)</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=400" alt="Itrifal Ustukhuddus migraine remedy" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2 flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i>Itrifal Ustukhuddus</h3>
+                        <p class="text-gray-700 mb-2">Herbal compound with lavender.</p>
+                        <p class="text-gray-600 text-sm mb-4">Uses: Relieves chronic headaches, migraines, improves brain function.</p>
+                        <span class="text-green-700 font-bold">₹400 (200g)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="Homepage.html" class="inline-block bg-green-700 text-white font-semibold px-8 py-3 rounded-full hover:bg-green-800 transition duration-300 shadow-lg">
+                    Back to Home <i class="fas fa-arrow-left ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-6 text-center">
+        <p>© 2025 Herbenia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // [Paste mobile menu and floating leaves script here]
+    </script>
+</body>
+</html>
