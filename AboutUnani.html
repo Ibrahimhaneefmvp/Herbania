@@ -131,6 +131,25 @@
     </nav>
 
     <!-- Main Content -->
+    <!-- Insert this new hero section right after the <nav> closing tag and before the existing <section class="section bg-green-50"> in AboutUnani.html -->
+
+    <section class="hero-section flex items-center justify-center relative" style="height: 60vh; overflow: hidden;">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="aunani.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay absolute inset-0 z-10" style="background: rgba(76, 175, 80, 0.3);"></div>
+        <div class="container mx-auto px-6 relative z-20 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fadeIn">Explore Unani</h1>
+            <p class="text-xl text-white max-w-2xl mx-auto">Dive into the magical world of ancient healing wisdom, where nature's essence restores balance and harmony.</p>
+        </div>
+        <div class="scroll-indicator absolute bottom-10 left-50% transform -translate-x-1/2 z-20">
+            <svg class="w-8 h-8 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+<!-- Also, ensure the existing main <section> starts right after this new hero section. Add or adjust styles in the <style> tag if needed for smooth scrolling/transition. -->
     <section class="section nature-bg relative">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -233,4 +252,5 @@
         });
     </script>
 </body>
+
 </html>
